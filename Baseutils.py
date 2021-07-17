@@ -17,3 +17,7 @@ class Baseutils():
         df = dt.DataReader(stk_name,"yahoo", start, end)
         prices = df["Close"]
         return np.array(prices)
+
+    def stksearch(self,stk_name,start,end):
+        df = dt.DataReader(stk_name,"yahoo", start, end)
+        return df

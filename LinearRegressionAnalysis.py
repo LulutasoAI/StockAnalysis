@@ -79,10 +79,10 @@ class LRANALYSIS():
 
 
 
+if __name__ == "__main__":
 
-
-start_date = ["1980-01-01","2001-01-01","2010-01-01"]
-symbols = ["NEE","ENPH","SEDG","FSLR","TSLA"]
-LR = LRANALYSIS(start_date, symbols)
-LR.main()
-LR.fig.show()
+    start_date = ["1980-01-01","2001-01-01","2010-01-01"]
+    symbols = ["NEE","ENPH","SEDG","FSLR","TSLA"]
+    LR = LRANALYSIS(start_date, symbols)
+    LR.main()
+    LR.fig.show()
