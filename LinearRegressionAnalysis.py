@@ -65,24 +65,33 @@ class LRANALYSIS():
         #plt.plot(Xaxis,y)
         #plt.plot(Xaxis, Y_pred, color="red")
     #    plt.title(symbol)
-
-        self.axs[m,n].plot(Xaxis,y)
-        self.axs[m,n].plot(Xaxis,Y_pred,color="red")
-        self.axs[m,n].set_title(symbol)
+        if self.axx == 1:
+            self.axs[n].plot(Xaxis,y)
+            self.axs[n].plot(Xaxis,Y_pred,color="red")
+            self.axs[n].set_title(symbol)
+        else:
+            self.axs[m,n].plot(Xaxis,y)
+            self.axs[m,n].plot(Xaxis,Y_pred,color="red")
+            self.axs[m,n].set_title(symbol)
 
     def main(self):
         #self.fig, self.axss = plt.subplots(self.axx,self.axy)
         for m, sdate in enumerate(self.start_date):
             for n, sname in enumerate(self.symbols):
-                self.graphgen(sdate,sname,n-1,m-1)
+                #self.graphgen(sdate,sname,n-1,m-1)
+                self.graphgen(sdate,sname,n,m)
+        plt.tight_layout()
         plt.show()
 
 
 
 if __name__ == "__main__":
 
-    start_date = ["1980-01-01","2001-01-01","2010-01-01"]
-    symbols = ["NEE","ENPH","SEDG","FSLR","TSLA"]
-    LR = LRANALYSIS(start_date, symbols)
+    #start_date = ["1980-01-01","2001-01-01","2010-01-01"]
+    start_dates = ["2015-01-01","2018-01-01","2010-01-01"]
+    #symbols = ["NVO","SO","PLUG"]
+    #symbols = ["NEE","AMAT","SEDG"]
+    symbols = ["NEE"]
+    LR = LRANALYSIS(start_dates, symbols)
     LR.main()
-    LR.fig.show()
+    #LR.fig.show()
